@@ -43,8 +43,9 @@ p = @pgf Axis(
     Legend(["Common", "Nearest"])
 )
 
-if SAVEAS_PNG
+if SAVEAS_PDF
     pgfsave(joinpath("figs", "pdf", "cart_to_ks_transform_smoothness.pdf"), p, dpi=300)
+    pgfsave(joinpath("figs", "png", "cart_to_ks_transform_smoothness.png"), p, dpi=300)
 else
     pgfsave(joinpath("figs", "cart_to_ks_transform_smoothness.tikz"), p, include_preamble=false)
 end

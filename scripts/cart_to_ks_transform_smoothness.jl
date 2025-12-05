@@ -67,7 +67,7 @@ for k = 1:Nk
 
     x_traj_ks_fixed[k] .= position_cart_to_ks_plus(x_traj_kep[k][1:3])
     x_traj_ks_newton[k] .= position_cart_to_ks_newton(x_traj_kep[k][1:3]; p_near=p_near)
-    p_near = x_traj_ks_newton[k]
+    global p_near = x_traj_ks_newton[k]
 end
 
 begin

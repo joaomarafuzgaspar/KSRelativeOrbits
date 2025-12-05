@@ -138,6 +138,11 @@ if SAVEAS_PDF
     pgfsave(joinpath("figs", "pdf", "low_thrust_rendezvous_radial_tangential" * color_mode * ".pdf"), p_RT, dpi=300)
     pgfsave(joinpath("figs", "pdf", "low_thrust_rendezvous_radial_normal" * color_mode * ".pdf"), p_RN, dpi=300)
     pgfsave(joinpath("figs", "pdf", "low_thrust_rendezvous_quad" * color_mode * ".pdf"), gp, dpi=300)
+    pgfsave(joinpath("figs", "png", "low_thrust_rendezvous_position_error" * color_mode * ".png"), p_err, dpi=300)
+    pgfsave(joinpath("figs", "png", "low_thrust_rendezvous_controls" * color_mode * ".png"), p_controls, dpi=300)
+    pgfsave(joinpath("figs", "png", "low_thrust_rendezvous_radial_tangential" * color_mode * ".png"), p_RT, dpi=300)
+    pgfsave(joinpath("figs", "png", "low_thrust_rendezvous_radial_normal" * color_mode * ".png"), p_RN, dpi=300)
+    pgfsave(joinpath("figs", "png", "low_thrust_rendezvous_quad" * color_mode * ".png"), gp, dpi=300)
 else
     pgfsave(joinpath("figs", "low_thrust_rendezvous.tikz"), gp, include_preamble=false)
 end

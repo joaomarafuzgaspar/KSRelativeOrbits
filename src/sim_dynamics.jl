@@ -156,11 +156,10 @@ function cartesian_J2_drag_perturbed_dynamics(x, u_scaled, t, model)
     rmag = norm(r)
     v = x[4:6]
 
-    u_k = u_scaled / model.u_scale
+    u_k = u_scaled
 
     rdot = v
     vdot = u_k - ((GM_scaled / rmag^3) * r)
-
 
     # perturbed dynamics
     if model.add_perturbations
@@ -175,7 +174,7 @@ function cartesian_J2_drag_perturbed_dynamics(x, u_scaled, t, model)
         a_unscaled = a_j2 + a_drag
 
         # scale acceleration
-        vdot .+= a_unscaled * (model.distance_scale / (model.time_scale^2))
+        vdot .+= a_unscaled / (model.distance_scale / (model.time_scale^2))
     end
 
     return [rdot; vdot]

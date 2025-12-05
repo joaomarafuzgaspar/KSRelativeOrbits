@@ -16,8 +16,7 @@ function ks_full_dynamics(model::SatelliteModel, p_state, u_scaled)
     h_prime = 0.0
 
     # control inputs are cartesian accelerations
-    u = u_scaled / model.u_scale
-    a = u
+    a = u_scaled
 
     # perturbed KS dynamics
     if model.add_perturbations
@@ -35,7 +34,7 @@ function ks_full_dynamics(model::SatelliteModel, p_state, u_scaled)
         a_unscaled = a_j2 + a_drag
 
         # scale acceleration
-        a = a + a_unscaled * (model.distance_scale / (model.time_scale^2))
+        a = a + a_unscaled / (model.distance_scale / (model.time_scale^2))
     end
 
     L = ks_L(p)
